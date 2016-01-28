@@ -1,7 +1,6 @@
 package cn.itcast.crm.Dao.Impl;
 
 import java.io.Serializable;
-import java.sql.SQLException;
 import java.util.Collection;
 import java.util.LinkedHashMap;
 import java.util.List;
@@ -14,8 +13,8 @@ import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
-import org.springframework.orm.hibernate3.HibernateCallback;
-import org.springframework.orm.hibernate3.support.HibernateDaoSupport;
+import org.springframework.orm.hibernate5.HibernateCallback;
+import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
 
 import cn.itcast.crm.Dao.ICommonDao;
 //import cn.itcast.crm.domain.SysPopedomPrivilege;
@@ -86,7 +85,7 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 		final String fhql=hql;
 		
 		List<T>  list=(List<T>)this.getHibernateTemplate().execute(new HibernateCallback(){
-			public Object doInHibernate(Session session) throws HibernateException, SQLException {
+			public Object doInHibernate(Session session) throws HibernateException {
 				Query query=session.createQuery(fhql);
 				//设置参数 
 				setParams(query, params);

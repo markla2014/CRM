@@ -7,6 +7,7 @@
   <version>0.0.1-SNAPSHOT</version>
   <name>CRM Maven Webapp</name>
   <url>http://maven.apache.org</url>
+  <!-- 
   <repositories>
   <repository>
   <id>central</id>
@@ -18,6 +19,7 @@
   </snapshots>
   </repository>
   </repositories>
+   -->
   <dependencies>
   <dependency>
 	<groupId>javax.transaction</groupId>
@@ -82,6 +84,11 @@
 <dependency>
 	<groupId>org.hibernate</groupId>
 	<artifactId>hibernate-core</artifactId>
+	<version>5.0.7.Final</version>
+</dependency>
+<dependency>
+	<groupId>org.hibernate</groupId>
+	<artifactId>hibernate-ehcache</artifactId>
 	<version>5.0.7.Final</version>
 </dependency>
 <dependency>
@@ -155,6 +162,11 @@
 <dependency>
 	<groupId>org.springframework</groupId>
 	<artifactId>spring-context-support</artifactId>
+	<version>4.2.4.RELEASE</version>
+</dependency>
+<dependency>
+	<groupId>org.springframework</groupId>
+	<artifactId>spring-context</artifactId>
 	<version>4.2.4.RELEASE</version>
 </dependency>
 <dependency>

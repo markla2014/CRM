@@ -16,17 +16,17 @@ public class TestSpringSesssionFactory {
        @Test
        public void test(){
     	
-	   ApplicationContext context=new ClassPathXmlApplicationContext("file:D:\\applicationContext.xml");
-	    System.out.println(context.getBeanDefinitionCount());
-//	   SessionFactory sf=(SessionFactory)context.getBean("sessionFactory");
-//	   Session s=sf.openSession();
-//       Transaction tx=s.beginTransaction();
-//       SysUserGroup sysUserGroup=new SysUserGroup();
-//       sysUserGroup.setName("mark");
-//       sysUserGroup.setPrincipal("xxx");
-//       sysUserGroup.setIncumbent("ttt");
-//       s.save(sysUserGroup);
-//       tx.commit();
-//       s.close();
+	   ApplicationContext context=new ClassPathXmlApplicationContext("classpath*:applicationContext.xml");
+	   
+	   SessionFactory sf=(SessionFactory)context.getBean("sessionFactory");
+	   Session s=sf.openSession();
+       Transaction tx=s.beginTransaction();
+       SysUserGroup sysUserGroup=new SysUserGroup();
+       sysUserGroup.setName("mark");
+       sysUserGroup.setPrincipal("xxx");
+       sysUserGroup.setIncumbent("ttt");
+       s.save(sysUserGroup);
+       tx.commit();
+       s.close();
        }
 }
