@@ -1,5 +1,7 @@
 package junit;
 
+import java.io.Serializable;
+
 import org.junit.BeforeClass;
 import org.junit.Test;
 import org.springframework.context.ApplicationContext;
@@ -17,20 +19,12 @@ public class TestSysUserGroupServiceDao {
 		 sysUserGroupDao = (ISysUserGroupDao) context.getBean(ISysUserGroupDao.SERVICE_NAME);   
 }
 	@Test
-	public void testSave() {
-		SysUserGroup sysUserGroup = new SysUserGroup();
-		sysUserGroup.setName("销售部");
-		sysUserGroup.setPrincipal("xxx");
-		sysUserGroup.setIncumbent("ttt");
+	public void testDelete(){
+	    Serializable[] ids={1}; 
+	    sysUserGroupDao.deleteByIds(ids);
 	}
 	@Test
-	public void testUpdate() {
-		SysUserGroup sysUserGroup = new SysUserGroup();
-		sysUserGroup.setId(1);
-		sysUserGroup.setName("销售部01");
-		sysUserGroup.setPrincipal("tom");
-		sysUserGroup.setIncumbent("销售部");
-		sysUserGroupDao.update(sysUserGroup);
+	public void testGetUsers(){
+		sysUserGroupDao.findObjectsByConditionWithNoPage().forEach(a->System.out.println(a.getId()));
 	}
-	
 }
