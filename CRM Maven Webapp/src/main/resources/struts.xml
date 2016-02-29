@@ -12,6 +12,7 @@
    <!--配置struts2的模式为开发模式-->
    <constant name="struts.devMode" value="true"/>
    
+
    <package name="sys" namespace="/sys" extends="struts-default">
 <action name="sysUserGroupAction_*" class="cn.itcast.crm.Web.Action.SysUserGroupAction" method="{1}">
 <result name="add">/newPagePlan/sys/group/add.jsp</result>

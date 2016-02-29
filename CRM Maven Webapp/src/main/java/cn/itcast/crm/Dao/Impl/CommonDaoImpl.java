@@ -9,12 +9,16 @@ import java.util.Map;
 import javax.annotation.Resource;
 
 import org.apache.commons.lang3.StringUtils;
+import org.hibernate.FlushMode;
 import org.hibernate.HibernateException;
 import org.hibernate.Query;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.springframework.orm.hibernate5.HibernateCallback;
 import org.springframework.orm.hibernate5.support.HibernateDaoSupport;
+import org.springframework.transaction.annotation.Isolation;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 
 import cn.itcast.crm.Dao.ICommonDao;
 //import cn.itcast.crm.domain.SysPopedomPrivilege;
@@ -31,13 +35,15 @@ public class CommonDaoImpl<T> extends HibernateDaoSupport implements ICommonDao<
 	    //调用父类的setSessionFactory方法,注入sessionFactory
 		super.setSessionFactory(sessionFactory);
 	}
+
 	public void save(T entity) {
 		// TODO Auto-generated method stub
 		this.getHibernateTemplate().save(entity);
 	}
-
+    
 	public void update(T entity) {
 		// TODO Auto-generated method stub
+		
 		this.getHibernateTemplate().update(entity);
 	}
 
